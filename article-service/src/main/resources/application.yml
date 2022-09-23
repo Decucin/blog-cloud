@@ -1,0 +1,32 @@
+server:
+  port: 9000
+
+spring:
+  redis:
+    port: 6379
+  application:
+    name: article-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog-article?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /vhost_cp
+    connection-timeout: 15000
+
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: decucin_

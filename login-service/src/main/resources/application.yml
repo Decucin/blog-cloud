@@ -1,0 +1,22 @@
+server:
+  port: 7000
+
+spring:
+  redis:
+    port: 6379
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog-user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: decucin_

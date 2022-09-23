@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: blog-gateway
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enable: false
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: userRoute
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - AddRequestHeader=From, Gateway
+        - id: articleRoute
+          uri: lb://article-service
+          predicates:
+            - Path=/article/**
+          filters:
+            - AddRequestHeader=From, Gateway
+
+server:
+  port: 80
